@@ -1,0 +1,21 @@
+// mixins
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+@mixin smallscreen {
+    @media (min-width: #{$smallscreen}) {
+        @content;
+    }
+}
+@mixin midscreen {
+    @media (min-width: #{$smallscreen}) {
+        @content;
+    }
+}
+@mixin sslandscape {
+    @media screen and (orientation: landscape) {
+        @content;
+      }
+}

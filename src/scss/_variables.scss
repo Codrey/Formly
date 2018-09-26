@@ -1,0 +1,27 @@
+// variables
+$colors: (
+    primary: #06ccbb,
+    primary-light: lighten(#06ccbb, 27%),
+    primary-dark: darken(#06ccbb, 27%),
+    accent: #c3ffbb,
+    accent-light: lighten(#c3ffbb, 27%),
+    accent-dark: darken(#c3ffbb, 27%),
+    form-primary: #42ca7f,
+    form-secondary: lighten(#42ca7f, 30%),
+    form-light: #9e9e9e,
+    error: #ff2d26,
+
+);
+
+$borders: 15px;
+$padding: 15px;
+$desktop: 1024px;
+$sslandscape: 812px;
+$smallscreen: 320px;
+$midscreen: 768px;
+$progress-height: 10px;
+
+// color mapping function 
+@function color($color-name) {
+    @return map-get($colors ,$color-name);
+}

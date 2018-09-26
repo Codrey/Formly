@@ -1,54 +1,5 @@
-// variables
-$colors: (
-    primary: #06ccbb,
-    primary-light: lighten(#06ccbb, 27%),
-    primary-dark: darken(#06ccbb, 27%),
-    accent: #c3ffbb,
-    accent-light: lighten(#c3ffbb, 27%),
-    accent-dark: darken(#c3ffbb, 27%)
-);
-
-$borders: 15px;
-$padding: 15px;
-$desktop: 1024px;
-$sslandscape: 812px;
-$smallscreen: 320px;
-$midscreen: 768px;
-
-// form vars
-$primary: #42ca7f;
-$secondary: lighten($primary, 30%);
-$light: #9e9e9e;
-$error: #ff2d26;
-$progress-height: 10px;
-
-// color mapping function 
-@function color($color-name) {
-    @return map-get($colors ,$color-name);
-}
-
-// mixins
-@mixin desktop {
-    @media (min-width: #{$desktop}) {
-        @content;
-    }
-}
-@mixin smallscreen {
-    @media (min-width: #{$smallscreen}) {
-        @content;
-    }
-}
-@mixin midscreen {
-    @media (min-width: #{$smallscreen}) {
-        @content;
-    }
-}
-@mixin sslandscape {
-    @media screen and (orientation: landscape) {
-        @content;
-      }
-}
-
+ @import "variables";
+ @import "mixins";
 
 
 
@@ -143,13 +94,13 @@ main {
             right: 20px;
             bottom: 10px;
             font-size: 40px;
-            color: $primary;
+            color: color(form-primary);
             float: right;
             cursor: pointer;
             z-index: 2;
           
             &:hover {
-              color: $secondary;
+              color: color(form-secondary);
             }
           }
           
@@ -159,12 +110,12 @@ main {
             left: 30px;
             top: 12px;
             z-index: 2;
-            color: $light;
+            color: color(form-light);
             float: right;
             cursor: pointer;
           
             &:hover {
-              color: $secondary;
+              color: color(form-secondary);
             }
           }
           
@@ -208,12 +159,12 @@ main {
               margin-left: 0 !important;
               font-size: 11px;
               font-weight: normal;
-              color: $light;
+              color: color(form-light);
             }
           }
           
           #input-progress {
-            border-bottom: 3px solid $primary;
+            border-bottom: 3px solid color(form-primary);
             width: 0;
             transition: width 0.6s ease-in-out;
           }
@@ -221,7 +172,7 @@ main {
           #progress-bar {
             border-radius: 1ch;
             position: absolute;
-            background: $secondary;
+            background: color(form-secondary);
             height: $progress-height;
             width: 0;
             transition: width 0.5s ease-in-out;
@@ -236,11 +187,11 @@ main {
           
           .error {
             #input-progress {
-              border-color: $error;
+              border-color: color(error);
             }
           
             #next-btn {
-              color: $error;
+              color: color(error);
             }
           }
           
