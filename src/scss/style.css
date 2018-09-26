@@ -1,0 +1,268 @@
+body, html {
+  height: 100%;
+}
+
+body {
+  font-family: monospace, 'Courier New', Courier;
+  margin: 0;
+}
+
+body #bg {
+  -webkit-clip-path: polygon(100% 0, 100% 85%, 46% 100%, 0 100%, 0 0);
+          clip-path: polygon(100% 0, 100% 85%, 46% 100%, 0 100%, 0 0);
+  background-color: #06ccbb;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+@media (min-width: 768px) {
+  body #bg {
+    -webkit-clip-path: polygon(0 0, 79% 0, 51% 100%, 0% 100%);
+            clip-path: polygon(0 0, 79% 0, 51% 100%, 0% 100%);
+  }
+}
+
+@media screen and (orientation: landscape) {
+  body #bg {
+    height: 150%;
+  }
+}
+
+@media (min-width: 320px) {
+  body #bg {
+    height: 164%;
+  }
+}
+
+body header a {
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  display: block;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  main {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 50% auto;
+        grid-template-columns: 50% auto;
+        grid-template-areas: "primary card";
+  }
+}
+
+main section#card {
+  background: #fff;
+  padding: 20px;
+  margin: 1em auto;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 80%;
+}
+
+@media (min-width: 768px) {
+  main section#card {
+    grid-area: card;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin: 1em;
+  }
+}
+
+main section#card #form-box {
+  background: #fff;
+  position: relative;
+  width: 600px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.1), 0 6px 10px 5px rgba(0, 0, 0, 0.1), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.1), 0 6px 10px 5px rgba(0, 0, 0, 0.1), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  -webkit-transition: -webkit-transform 0.1s ease-in-out;
+  transition: -webkit-transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
+}
+
+main section#card #form-box.close {
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+  -webkit-transition: 0.8s ease-in-out;
+  transition: 0.8s ease-in-out;
+  -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0);
+          box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0);
+}
+
+main section#card #next-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  font-size: 40px;
+  color: #428bca;
+  float: right;
+  cursor: pointer;
+  z-index: 2;
+}
+
+main section#card #next-btn:hover {
+  color: #b9d4ec;
+}
+
+main section#card #prev-btn {
+  position: absolute;
+  font-size: 18px;
+  left: 30px;
+  top: 12px;
+  z-index: 2;
+  color: #9e9e9e;
+  float: right;
+  cursor: pointer;
+}
+
+main section#card #prev-btn:hover {
+  color: #b9d4ec;
+}
+
+main section#card #input-group {
+  position: relative;
+  padding: 30px 20px 20px 20px;
+  margin: 10px 60px 10px 10px;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+main section#card #input-group input {
+  position: relative;
+  width: 100%;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: 0;
+  background: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+main section#card #input-group #input-label {
+  position: absolute;
+  pointer-events: none;
+  top: 32px;
+  left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+main section#card #input-group input:valid + #input-label {
+  top: 6px;
+  left: 42px;
+  margin-left: 0 !important;
+  font-size: 11px;
+  font-weight: normal;
+  color: #9e9e9e;
+}
+
+main section#card #input-progress {
+  border-bottom: 3px solid #428bca;
+  width: 0;
+  -webkit-transition: width 0.6s ease-in-out;
+  transition: width 0.6s ease-in-out;
+}
+
+main section#card #progress-bar {
+  position: absolute;
+  background: #b9d4ec;
+  height: 10px;
+  width: 0;
+  -webkit-transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out;
+}
+
+main section#card .close #next-btn,
+main section#card .close #prev-btn {
+  color: #fff;
+}
+
+main section#card .error #input-progress {
+  border-color: #ff2d26;
+}
+
+main section#card .error #next-btn {
+  color: #ff2d26;
+}
+
+@media (max-width: 600px) {
+  main section#card #form-box {
+    width: 80%;
+  }
+}
+
+main section#primary {
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  main section#primary {
+    grid-area: primary;
+    text-align: left;
+    margin: 4em 0 0 4em;
+  }
+}
+
+main section#primary h1 {
+  font-size: 3em;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  main section#primary h1 {
+    width: 30%;
+    font-size: 4em;
+    line-height: .9em;
+  }
+}
+
+main section#primary p {
+  font-size: 1.4em;
+}
+
+main section#primary a {
+  color: #024640;
+  border-radius: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #c3ffbb;
+  display: block;
+  text-align: center;
+  margin: 50 auto 0 auto;
+  padding: 15px;
+}
+
+main section#primary a:hover {
+  border-color: #fff;
+  border-style: double;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+  main section#primary a {
+    display: block;
+    padding: 15px 60px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
