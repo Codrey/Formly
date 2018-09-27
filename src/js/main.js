@@ -137,7 +137,7 @@ function formComplete() {
     document.createTextNode(
       `Thanks ${
         questions[0].answer
-      } You are registered and will get an email shortly`
+      } I have your details and look forward to speaking with you`
     )
   );
   setTimeout(() => {

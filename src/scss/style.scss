@@ -39,6 +39,16 @@ body {
         padding: $padding;
         display: block;
         text-transform: uppercase; 
+        opacity: .1;
+        
+        @include desktop {
+          writing-mode: vertical-lr;
+          text-orientation: mixed;
+          opacity: .3;
+          position: absolute;
+          padding-top: 1ch;
+          padding-left: 1ch;
+        }
     }
 }
 
@@ -46,6 +56,7 @@ main {
 
     // media
     @include desktop {
+        padding-top: 12vw;
         display: grid;
         grid-template-columns: 50% auto;
         grid-template-areas: "primary card",
@@ -53,6 +64,10 @@ main {
 
     section#card {
           background: #fff;
+          background-size: cover;
+          background-image: url(https://images.pexels.com/photos/1165991/pexels-photo-1165991.jpeg?cs=srgb&dl=calm-countryside-environment-1165991.jpg&fm=jpg);
+          background-position: center;
+          background-repeat: no-repeat;
           padding: 20px;
           margin: 1em auto;
           border-radius: $borders;
@@ -93,7 +108,7 @@ main {
             position: absolute;
             right: 20px;
             bottom: 10px;
-            font-size: 40px;
+            font-size: 3ch;
             color: color(form-primary);
             float: right;
             cursor: pointer;
@@ -106,11 +121,11 @@ main {
           
           #prev-btn {
             position: absolute;
-            font-size: 18px;
+            font-size: 1.5ch;
             left: 30px;
             top: 12px;
             z-index: 2;
-            color: color(form-light);
+            color: color(title);
             float: right;
             cursor: pointer;
           
@@ -145,11 +160,9 @@ main {
               font-size: 20px;
               font-weight: bold;
               transition: 0.2s ease-in-out;
-              @include smallscreen {
-                font-size: 1.3ch;
-              }              
+            
               @include midscreen {
-                font-size: 1.6ch;
+                font-size: 1.3ch;
               }              
             }
           
@@ -219,6 +232,10 @@ main {
             margin-top: 10px;
             text-transform: uppercase;
 
+            span {
+                color: color(title);
+            }
+
             @include desktop {
                 width: 30%;
                 font-size: 4em;
@@ -233,6 +250,10 @@ main {
         a {
             color: color(primary-dark);
             border-radius: $borders;
+            border-radius: 15px;
+            border-style: inset;
+            border-width: .5px;
+            border-color: color(title);
             text-decoration: none;
             text-transform: uppercase;
             font-weight: bold;
